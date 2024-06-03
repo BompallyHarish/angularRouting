@@ -2,4 +2,4 @@
 <p>Id: {{userId.id}}</p>
 <p>Name: {{userId.name}}</p>
 
-<a href="" [routerLink]="['/users', 10, 'Ana']">Load Ana</a>
+<a href="" [routerLink]="['/users', 10, 'Ana']" [queryParams]="{sister:1}" fragment="loading">Load Ana</a>
