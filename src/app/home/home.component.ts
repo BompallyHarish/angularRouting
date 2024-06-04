@@ -9,6 +9,6 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router:Router){}
   loadServer(){
-    this.router.navigate(['/servers', 1, 'edit'],{queryParams:{per_page:1}})
+    this.router.navigate(['/servers'],{queryParams:{per_page:1}})
   }
 }
