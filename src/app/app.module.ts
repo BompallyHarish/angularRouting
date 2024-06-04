@@ -8,15 +8,24 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { ServerComponent } from './servers/server/server.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { FormsModule } from '@angular/forms';
 
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id/:name', component: UserComponent },
-  { path: 'servers', component: ServersComponent },
-  { path: 'servers/:id/:name', component: ServersComponent }
+  {
+    path: 'users', component: UsersComponent, children: [
+      { path: ':id/:name', component: UserComponent },
+    ]
+  },
+  {
+    path: 'servers', component: ServersComponent, children: [
+      { path: ':id/:name', component: ServerComponent },
+      { path: ':id/:name/edit', component: EditServerComponent }
+    ]
+  },
+
 ]
 
 @NgModule({
@@ -31,7 +40,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [
     provideClientHydration()
