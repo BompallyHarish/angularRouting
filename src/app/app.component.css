@@ -6,5 +6,14 @@
 
 .mainClass {
     display: flex;
-    margin-right: 10px
+    margin-right: 10px;
+    size:100cm;
+}
+
+.align1{
+  padding-left: 35%;
+}
+
+.bgColor{
+    background-color: rgb(195, 190, 190);
 }

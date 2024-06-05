@@ -17,7 +17,11 @@ const appRoutes: Routes = [
         ]
     },
     {
-        path: 'servers', canActivate:[AuthGuardService], component: ServersComponent, children: [
+        path: 'servers',
+        canActivate: [AuthGuardService],
+        canActivateChild: [AuthGuardService],
+        component: ServersComponent,
+        children: [
             { path: ':id/:name', component: ServerComponent },
             { path: ':id/:name/edit', component: EditServerComponent }
         ]
@@ -35,7 +39,7 @@ const appRoutes: Routes = [
     imports: [
         RouterModule.forRoot(appRoutes)
     ],
-    exports:[RouterModule]
+    exports: [RouterModule]
 })
 export class AppRoutingModule {
 
