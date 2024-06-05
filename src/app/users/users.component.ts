@@ -14,7 +14,7 @@ export class UsersComponent {
     private route: ActivatedRoute
   ) { }
   onUsersClick() {
-    this.router.navigate(['users'], { relativeTo: this.route })
+    this.router.navigate(['/users'], { relativeTo: this.route })
   }
   public users = this.userService.users
 }

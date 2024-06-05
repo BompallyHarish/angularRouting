@@ -16,6 +16,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { UsersService } from './shared/users.service';
 import { ServersService } from './shared/servers.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -28,7 +29,8 @@ import { ServersService } from './shared/servers.service';
     UserComponent,
     ServerComponent,
     EditServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
