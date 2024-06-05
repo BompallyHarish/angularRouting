@@ -10,30 +10,14 @@ import { ServerComponent } from './servers/server/server.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { FormsModule } from '@angular/forms';
 
-import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
+import { UsersService } from './shared/users.service';
+import { ServersService } from './shared/servers.service';
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  {
-    path: 'users', component: UsersComponent, children: [
-      { path: ':id/:name', component: UserComponent },
-    ]
-  },
-  {
-    path: 'servers', component: ServersComponent, children: [
-      { path: ':id/:name', component: ServerComponent },
-      { path: ':id/:name/edit', component: EditServerComponent }
-    ]
-  },
-  {
-    path:'not-found', component: PageNotFoundComponent
-  },
-  {
-    path:'**', redirectTo:'/not-found'
-  }
 
-]
 
 @NgModule({
   declarations: [
@@ -48,10 +32,14 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
+    AuthGuardService,
+    AuthService,
+    UsersService,
+    ServersService,
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
